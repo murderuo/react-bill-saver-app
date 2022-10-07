@@ -1,0 +1,25 @@
+.form_components {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  background: #628d9c;
+  padding: 15px;
+  border: 1px solid;
+}
+
+.form_components > form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid;
+}
+.input {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.month {
+  display: flex;
+  justify-content: space-between;
+}
