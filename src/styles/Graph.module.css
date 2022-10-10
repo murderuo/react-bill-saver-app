@@ -1,0 +1,31 @@
+.graphcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    /* background: #628d9c; */
+
+}
+
+.graphtitle {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.grapshselectyears {
+  margin-top: 20px;
+  width: 30%;
+  /* border: 1px dotted; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+.grapshselectyears > select {
+  width: 50%;
+  border: none;
+}
+.graphs {
+  margin-top: 30px;
+}

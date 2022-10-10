@@ -13,22 +13,31 @@ function AddForm() {
             <label htmlFor="month">Month:</label>
             <input type="text" name="month" />
           </div>
-          <div className="consume">
+          <div className={AddFormStyles.consume}>
             <label htmlFor="consume">Comsume:</label>
             <input type="text" name="consume" />
           </div>
-          <div className="price">
+          <div className={AddFormStyles.price}>
             <label htmlFor="price">Price:</label>
             <input type="text" name="price" />
           </div>
-          <div className="billof">
-            <label htmlFor="price">Bill Of:</label>
+          <div className={AddFormStyles.billof}>
+            <label htmlFor="billof">Bill Of:</label>
             <select name="" id="">
-              <option value="mocile">Mobile</option>
+              <option value="elektrik">Elektrik</option>
+              <option value="su">Su</option>
+              <option value="gas">Gaz</option>
+              <option value="telekominikasyon">Telekom..</option>
+            </select>
+          </div>
+          <div className={AddFormStyles.billoftelekomhidden}>
+            <label htmlFor="billof">type of telekom..:</label>
+            <select name="" id="">
+              <option value="mobile">Mobile</option>
               <option value="cable">Cable</option>
             </select>
           </div>
-          <div className="billof">
+          <div className={AddFormStyles.billofbuttons}>
             <button type="submit">Add</button>
             <button type="reset">Clear</button>
           </div>

@@ -1,10 +1,16 @@
 import './App.css';
-import Main from './pages/Main/';
+import { BrowserRouter } from 'react-router-dom';
+import MainRoutes from './MainRoutes/';
+import Navbar from './components/Navbar/';
 
 function App() {
   return (
     <div>
-      <Main />
+      <BrowserRouter>
+        <Navbar />
+        <MainRoutes />
+        {/* <Main /> */}
+      </BrowserRouter>
     </div>
   );
 }

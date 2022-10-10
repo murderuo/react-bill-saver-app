@@ -11,10 +11,12 @@
   gap:10px
 }
 
-.container > div {
-  width: 60%;
+.addBill {
+  width: 40%;
   display: flex;
   justify-content: center;
   background: #628d9c;
   padding: 15px;
+
+
 }

@@ -6,6 +6,7 @@ function AddBill() {
     <div className={AddBillStyles.container}>
       <div>Add New Bill</div>
       <AddForm/>
+      {/* <ShowGraph/> */}
     </div>
   );
 }
