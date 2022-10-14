@@ -12,11 +12,19 @@
 }
 
 .addBill {
-  width: 40%;
+  width: 60%;
   display: flex;
   justify-content: center;
   background: #628d9c;
   padding: 15px;
 
 
+}
+
+.container > div {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  background: #628d9c;
+  padding: 15px;
 }

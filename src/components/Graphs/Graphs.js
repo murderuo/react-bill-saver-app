@@ -22,13 +22,18 @@ function Graphs() {
   const [charsData, setcharsData] = useState({
     options: {
       // chart: { id: 'bar' },
-      xaxis: { categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998] },
+      xaxis: {
+        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+      },
     },
     series: [
       {
-        name: 'series-1',
-        data: [30, 40, 45, 50, 49, 60, 70, 91],
-      },
+        name: 'Net Profit',
+        data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+      }, {
+        name: 'Revenue',
+        data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+      }
     ],
   });
   return (

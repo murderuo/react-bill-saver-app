@@ -120,17 +120,17 @@ function AddForm() {
 
           <div className={AddFormStyles.error}>
           {/* {JSON.stringify(errors)} */}
-          {for (const key in errors){
+          {/* {for (const key in errors){
             <span>{errors.key}</span>
-          }}
-           {/* {touched.year && errors.year && <span>{errors.year}</span>}
+          }} */}
+           {touched.year && errors.year && <span>{errors.year}</span>}
             {touched.month && errors.month && <span>{errors.month}</span>}
             {touched.consume && errors.consume && <span>{errors.consume}</span>}
             {touched.price && errors.price && <span>{errors.price}</span>}
             {touched.billof && errors.billof && <span>{errors.billof}</span>}
             {touched.billoftype && errors.billoftype && (
               <span>{errors.billoftype}</span>
-            )} */}
+            )}
            
           </div>
           <div className={AddFormStyles.billofbuttons}>
