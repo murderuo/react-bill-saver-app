@@ -1,7 +1,19 @@
 import GrapsStyles from '../../styles/Graph.module.css';
 import Graphs from '../Graphs/Graphs';
+import {useEffect} from 'react'
 
 function ShowGraph() {
+  
+
+  const fetchData =()=>{
+
+
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, []);
+
   return (
     <div className={GrapsStyles.graphcontainer}>
       <div className={GrapsStyles.graphtitle}>Consume graphics by years</div>

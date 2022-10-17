@@ -4,10 +4,8 @@ import Electricity from '../pages/Electricity';
 import Water from '../pages/Water';
 import Gas from '../pages/Gas';
 import Telekom from '../pages/Telekom';
-import React from 'react';
 
 function MainRoutes() {
-
   return (
     <>
       <Routes>

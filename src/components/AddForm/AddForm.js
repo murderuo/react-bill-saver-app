@@ -1,34 +1,45 @@
 import AddFormStyles from '../../styles/Addform.module.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
+import GlobalContext from '../../Context/globalContext';
 
-const initialFormValues = {
-  year: '2021',
-  month: 'ocak',
-  consume: '',
-  price: '',
-  billof: 'none',
-  billoftype: 'none',
-};
 function AddForm() {
-  const [formData, setFormData] = useState(initialFormValues);
+  const { componentName, setComponentName } = useContext(GlobalContext);
+
+  const initialFormValues = {
+    year: '2021',
+    month: 'ocak',
+    consume: '',
+    price: '',
+    billof: componentName === 'main' ? 'none' : componentName,
+    billoftype: 'none',
+  };
+
+  const handlePostData = async formValues => {
+    console.log(formValues);
+    const response = await axios.post('/add_new_bill', formValues);
+    const data = await response.data;
+    console.log(data);
+  };
 
   const { values, handleChange, handleReset, handleSubmit, errors, touched } =
     useFormik({
       initialValues: initialFormValues,
       onSubmit: values => {
-        setFormData(values);
-        console.log(values);
+        // setFormData(values);
+        // console.log(values);
+        handlePostData(values);
         handleReset();
       },
       validationSchema: Yup.object({
         year: Yup.string().label('Year').required(),
         month: Yup.string().label('Month').required(),
         consume: Yup.number().label('Consume').required(),
-        price: Yup.number().label('price').required(),
-        billof: Yup.string().label('Bill').optional(),
-        billoftype: Yup.string().label('Bill of type').required(),
+        price: Yup.number().label('Price').required(),
+        billof: Yup.string().label('Bill').required(),
+        billoftype: Yup.string().label('Bill of type').optional(),
       }),
     });
 
@@ -119,11 +130,11 @@ function AddForm() {
           </div>
 
           <div className={AddFormStyles.error}>
-          {/* {JSON.stringify(errors)} */}
-          {/* {for (const key in errors){
+            {/* {JSON.stringify(errors)} */}
+            {/* {for (const key in errors){
             <span>{errors.key}</span>
           }} */}
-           {touched.year && errors.year && <span>{errors.year}</span>}
+            {touched.year && errors.year && <span>{errors.year}</span>}
             {touched.month && errors.month && <span>{errors.month}</span>}
             {touched.consume && errors.consume && <span>{errors.consume}</span>}
             {touched.price && errors.price && <span>{errors.price}</span>}
@@ -131,7 +142,6 @@ function AddForm() {
             {touched.billoftype && errors.billoftype && (
               <span>{errors.billoftype}</span>
             )}
-           
           </div>
           <div className={AddFormStyles.billofbuttons}>
             <button type="submit">Add</button>
