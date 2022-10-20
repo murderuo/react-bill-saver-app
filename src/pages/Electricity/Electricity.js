@@ -4,12 +4,14 @@ import ShowGraph from '../../components/ShowGraph';
 import React, { useContext, useState,useEffect } from 'react';
 import AddForm from '../../components/AddForm';
 import GlobalContext from '../../Context/globalContext';
+import axios from 'axios';
 
 
 function Electricity() {
   const [showForm, setShowForm] = useState(false);
-
   const {componentName,setComponentName}=useContext(GlobalContext)
+
+ 
 
   useEffect(() => {
     setComponentName('elektrik')
@@ -26,7 +28,7 @@ function Electricity() {
         Add New Bill
       </div>
       {showForm && <AddForm />}
-      <ShowGraph />
+      <ShowGraph componentName={componentName}/>
     </div>
   );
 }

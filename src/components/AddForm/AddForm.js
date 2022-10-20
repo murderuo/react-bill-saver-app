@@ -16,6 +16,7 @@ function AddForm() {
     billof: componentName === 'main' ? 'none' : componentName,
     billoftype: 'none',
   };
+ 
 
   const handlePostData = async formValues => {
     console.log(formValues);

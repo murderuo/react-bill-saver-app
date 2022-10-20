@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AddForm from '../../components/AddForm';
 import ShowGraph from '../../components/ShowGraph';
+import GlobalContext from '../../Context/globalContext';
 import WaterStyles from '../../styles/Water.module.css';
 
 function GasBill() {
   const [showForm, setShowForm] = useState(false);
+  const { componentName, setComponentName } = useContext(GlobalContext);
+
+  useEffect(() => {
+    setComponentName('gaz');
+  }, []);
 
   const handleShowForm = () => {
     setShowForm(true);
@@ -17,7 +23,7 @@ function GasBill() {
         Add New Bill
       </div>
       {showForm && <AddForm />}
-      <ShowGraph />
+      <ShowGraph componentName={componentName} />
     </div>
   );
 }

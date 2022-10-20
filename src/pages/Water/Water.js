@@ -1,10 +1,17 @@
 import WaterStyles from '../../styles/Water.module.css';
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ShowGraph from '../../components/ShowGraph';
 import AddForm from '../../components/AddForm';
+import GlobalContext from '../../Context/globalContext';
 
+function WaterBill() {
+  const { componentName, setComponentName } = useContext(GlobalContext);
 
-function WaterBill() {const [showForm, setShowForm] = useState(false);
+  useEffect(() => {
+    setComponentName('su');
+  }, []);
+
+  const [showForm, setShowForm] = useState(false);
 
   const handleShowForm = () => {
     setShowForm(true);
@@ -16,8 +23,8 @@ function WaterBill() {const [showForm, setShowForm] = useState(false);
       <div className={WaterStyles.addBill} onClick={handleShowForm}>
         Add New Bill
       </div>
-      {showForm && <AddForm/>}
-      <ShowGraph />
+      {showForm && <AddForm />}
+      <ShowGraph componentName={componentName} />
     </div>
   );
 }

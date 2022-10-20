@@ -1,44 +1,66 @@
 import Chart from 'react-apexcharts';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function Graphs() {
-  // console.log(data);
-  // const [infilationYears, setInfilationYears] = useState([]);
+function Graphs({ graphicData }) {
+  const data = Object.values(graphicData);
+  const [graphData, setGraphData] = useState([]);
+
+  useEffect(() => {
+    console.log('grafik rendered');
+    setGraphData(data);
+  }, [graphicData]);
+
   // useEffect(() => {
-  //   const getyear = () => {
-  //     let years = [];
-  //     if (data != null) {
-  //       data.forEach(item => {
-  //         years.append(item.year);
-  //         console.log(item.year);
-  //       });
-  //       setInfilationYears(years);
-  //     }
-  //   };
-  //   getyear();
-  //   console.log(data);
-  // }, []);
-  // console.log(infilationYears);
-  const [charsData, setcharsData] = useState({
+  //   data = Object.values(graphicData);
+  // }, [graphicData]);
+
+  const initialTableValues = {
     options: {
       // chart: { id: 'bar' },
       xaxis: {
-        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+        categories: () => {
+          const data = graphData.map(item => item.ay);
+          return data;
+        },
+        // categories: [
+        //   'Feb',
+        //   'Mar',
+        //   'Apr',
+        //   'May',
+        //   'Jun',
+        //   'Jul',
+        //   'Aug',
+        //   'Sep',
+        //   'Oct',
+        // ],
       },
     },
     series: [
       {
-        name: 'Net Profit',
-        data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-      }, {
-        name: 'Revenue',
-        data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-      }
+        name: 'Tuketim Miktarı',
+        data: () => {
+          const data = graphData.map(item => item.tuketim_miktari);
+          return data;
+        },
+        // data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
+      },
+      {
+        name: 'Fatura Tutarı',
+        data: () => {
+          const data = graphData.map(item => item.fatura_tutari);
+          return data;
+        },
+        // data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
+      },
     ],
-  });
+    dataLabels: {
+      enabled: false,
+    },
+  };
+
+  const [charsData, setcharsData] = useState(initialTableValues);
   return (
     <div>
-
       <Chart
         options={charsData.options}
         series={charsData.series}
@@ -46,6 +68,10 @@ function Graphs() {
         type="bar"
         width="500"
       />
+
+      {JSON.stringify(graphData)}
+      {/* {JSON.stringify(graphData.map(item => item.fatura_tutari))} */}
+      {JSON.stringify([...graphData.map(item => item.ay)])}
     </div>
   );
 }
