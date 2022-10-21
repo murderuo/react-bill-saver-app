@@ -11,6 +11,7 @@ function ShowGraph({ componentName }) {
     const url = `${componentName}/${year}`;
     const response = await axios.get(url);
     setData(response.data);
+    console.log(url);
   };
 
   useEffect(() => {

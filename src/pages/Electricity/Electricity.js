@@ -28,6 +28,8 @@ function Electricity() {
         Add New Bill
       </div>
       {showForm && <AddForm />}
+      {componentName==='main' && <div>Loading..</div>}
+
       <ShowGraph componentName={componentName}/>
     </div>
   );

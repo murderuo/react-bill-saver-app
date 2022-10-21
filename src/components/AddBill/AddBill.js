@@ -7,13 +7,13 @@ function AddBill() {
 
   const {  componentName,setComponentName } = useContext(GlobalContext);
 
-  console.log(componentName);
-
-
+  
+  
   useEffect(() => {
-    setComponentName('main');
+    setComponentName('main' );
   }, []);
-
+  
+  console.log(componentName);
   return (
     <div className={AddBillStyles.container}>
       <div>Add New Bill</div>
