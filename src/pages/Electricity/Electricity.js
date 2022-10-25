@@ -1,20 +1,17 @@
 import ElectricityStyles from '../../styles/Electricity.module.css';
 
 import ShowGraph from '../../components/ShowGraph';
-import React, { useContext, useState,useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import AddForm from '../../components/AddForm';
 import GlobalContext from '../../Context/globalContext';
 import axios from 'axios';
 
-
 function Electricity() {
   const [showForm, setShowForm] = useState(false);
-  const {componentName,setComponentName}=useContext(GlobalContext)
-
- 
+  const { componentName, setComponentName } = useContext(GlobalContext);
 
   useEffect(() => {
-    setComponentName('elektrik')
+    setComponentName('elektrik');
   }, []);
 
   const handleShowForm = () => {
@@ -28,9 +25,7 @@ function Electricity() {
         Add New Bill
       </div>
       {showForm && <AddForm />}
-      {componentName==='main' && <div>Loading..</div>}
-
-      <ShowGraph componentName={componentName}/>
+      {componentName === 'main' ? <div>Loading..</div> : <ShowGraph />}
     </div>
   );
 }

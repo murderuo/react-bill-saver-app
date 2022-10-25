@@ -1,17 +1,20 @@
 import GrapsStyles from '../../styles/Graph.module.css';
 import Graphs from '../Graphs/Graphs';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import GlobalContext from '../../Context/globalContext';
 
-function ShowGraph({ componentName }) {
+function ShowGraph() {
   const [year, setYear] = useState(2020);
   const [data, setData] = useState([]);
+  const {componentName}=useContext(GlobalContext)
+
 
   const fetchData = async () => {
     const url = `${componentName}/${year}`;
+    // console.log(url);
     const response = await axios.get(url);
     setData(response.data);
-    console.log(url);
   };
 
   useEffect(() => {
@@ -29,6 +32,7 @@ function ShowGraph({ componentName }) {
       <div className={GrapsStyles.grapshselectyears}>
         <label>Year:</label>
         <select onChange={handleChange}>
+          
           <option value="2020">2020</option>
           <option value="2021">2021</option>
           <option value="2022">2022</option>

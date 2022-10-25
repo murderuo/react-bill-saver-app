@@ -9,14 +9,13 @@ function AddForm() {
   const { componentName, setComponentName } = useContext(GlobalContext);
 
   const initialFormValues = {
-    year: '2021',
-    month: 'ocak',
+    year: '2020',
+    month: '1',
     consume: '',
     price: '',
     billof: componentName === 'main' ? 'none' : componentName,
     billoftype: 'none',
   };
- 
 
   const handlePostData = async formValues => {
     console.log(formValues);
@@ -30,15 +29,14 @@ function AddForm() {
       initialValues: initialFormValues,
       onSubmit: values => {
         // setFormData(values);
-        // console.log(values);
         handlePostData(values);
         handleReset();
       },
       validationSchema: Yup.object({
         year: Yup.string().label('Year').required(),
         month: Yup.string().label('Month').required(),
-        consume: Yup.number().label('Consume').required(),
-        price: Yup.number().label('Price').required(),
+        consume: Yup.string().label('Consume').required(),
+        price: Yup.string().label('Price').required(),
         billof: Yup.string().label('Bill').required(),
         billoftype: Yup.string().label('Bill of type').optional(),
       }),
@@ -56,9 +54,10 @@ function AddForm() {
               onChange={handleChange}
               value={values.year}
             >
+           
               <option value="2020">2020</option>
-              <option value="2020">2021</option>
-              <option value="2020">2022</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
             </select>
           </div>
           <div className={AddFormStyles.month}>
@@ -69,18 +68,18 @@ function AddForm() {
               onChange={handleChange}
               value={values.month}
             >
-              <option value="ocak">ocak</option>
-              <option value="subat">subat</option>
-              <option value="mart">mart</option>
-              <option value="nisan">nisan</option>
-              <option value="mayis">mayis</option>
-              <option value="haziran">haziran</option>
-              <option value="temmuz">temmuz</option>
-              <option value="agustos">agustos</option>
-              <option value="eylul">eylul</option>
-              <option value="ekim">ekim</option>
-              <option value="kasim">kasim</option>
-              <option value="aralik">aralik</option>
+              <option value="1">ocak</option>
+              <option value="2">subat</option>
+              <option value="3">mart</option>
+              <option value="4">nisan</option>
+              <option value="5">mayis</option>
+              <option value="6">haziran</option>
+              <option value="7">temmuz</option>
+              <option value="8">agustos</option>
+              <option value="9">eylul</option>
+              <option value="10">ekim</option>
+              <option value="11">kasim</option>
+              <option value="12">aralik</option>
             </select>
           </div>
           <div className={AddFormStyles.billof}>

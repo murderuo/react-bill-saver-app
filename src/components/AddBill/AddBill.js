@@ -13,7 +13,7 @@ function AddBill() {
     setComponentName('main' );
   }, []);
   
-  console.log(componentName);
+  // console.log(componentName);
   return (
     <div className={AddBillStyles.container}>
       <div>Add New Bill</div>
