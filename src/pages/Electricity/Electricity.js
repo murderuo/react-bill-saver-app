@@ -4,7 +4,6 @@ import ShowGraph from '../../components/ShowGraph';
 import React, { useContext, useState, useEffect } from 'react';
 import AddForm from '../../components/AddForm';
 import GlobalContext from '../../Context/globalContext';
-import axios from 'axios';
 
 function Electricity() {
   const [showForm, setShowForm] = useState(false);
@@ -12,6 +11,7 @@ function Electricity() {
 
   useEffect(() => {
     setComponentName('elektrik');
+    // eslint-disable-next-line
   }, []);
 
   const handleShowForm = () => {

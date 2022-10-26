@@ -5,12 +5,13 @@ import GlobalContext from '../../Context/globalContext';
 
 function AddBill() {
 
-  const {  componentName,setComponentName } = useContext(GlobalContext);
+  const {  setComponentName } = useContext(GlobalContext);
 
   
   
   useEffect(() => {
     setComponentName('main' );
+    // eslint-disable-next-line
   }, []);
   
   // console.log(componentName);

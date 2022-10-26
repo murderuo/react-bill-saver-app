@@ -19,6 +19,7 @@ function ShowGraph() {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, [componentName, year]);
 
   const handleChange = e => {

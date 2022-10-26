@@ -90,6 +90,7 @@ function Graphs({ graphicData }) {
     setcharsData(changedGraphicData);
     // console.log('grafik rendered');
     // setGraphData(data);
+    // eslint-disable-next-line
   }, [graphicData]);
 
   return (
@@ -106,9 +107,7 @@ function Graphs({ graphicData }) {
         />
       )}
 
-      {/* {JSON.stringify(graphData)} */}
-      {/* {JSON.stringify(graphData.map(item => item.fatura_tutari))} */}
-      {/* {JSON.stringify([...graphData.map(item => item.ay)])} */}
+
     </div>
   );
 }

@@ -1,12 +1,12 @@
 import AddFormStyles from '../../styles/Addform.module.css';
-import React, { useState, useEffect, useContext } from 'react';
+import React, {  useContext } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import GlobalContext from '../../Context/globalContext';
 
 function AddForm() {
-  const { componentName, setComponentName } = useContext(GlobalContext);
+  const { componentName } = useContext(GlobalContext);
 
   const initialFormValues = {
     year: '2020',
