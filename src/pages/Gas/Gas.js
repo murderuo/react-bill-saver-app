@@ -10,6 +10,7 @@ function GasBill() {
 
   useEffect(() => {
     setComponentName('gaz');
+    // eslint-disable-next-line
   }, []);
 
   const handleShowForm = () => {

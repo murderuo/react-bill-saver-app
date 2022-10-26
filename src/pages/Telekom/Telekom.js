@@ -10,6 +10,7 @@ function Telekom() {
 
   useEffect(() => {
     setComponentName('telekominikasyon');
+    // eslint-disable-next-line
   }, []);
 
   const handleShowForm = () => {
@@ -23,7 +24,7 @@ function Telekom() {
         Add New Bill
       </div>
       {showForm && <AddForm />}
-      <ShowGraph componentName={componentName}/>
+      <ShowGraph componentName={componentName} />
       {/* <ShowGraph componentName={componentName} /> */}
     </div>
   );

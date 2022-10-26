@@ -9,6 +9,7 @@ function WaterBill() {
 
   useEffect(() => {
     setComponentName('su');
+    // eslint-disable-next-line
   }, []);
 
   const [showForm, setShowForm] = useState(false);
